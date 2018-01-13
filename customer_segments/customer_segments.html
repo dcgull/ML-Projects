@@ -13843,7 +13843,7 @@ QmCC
 <p><strong>Answer:</strong></p>
 <p>It appears that I was correct in arguing that fresh produce sales are not correlated with any of the other features. There are some features that appear to be correlated though: milk, grocery, and detergents/paper all seem to be related, and could probably be reduced to a single latent feature. In fact, grocery sales seems to be so well correlated with detergents/paper I suspect that one of them could be dropped from the model entirely without affecting the performance much.</p>
 <p>About half of all customers don't buy much in the way of detergents/paper or deli goods. This suggests to me that detergents/paper would be a good feature to drop. Deli sales seem to be a more useful feature, containing information we may need for the clustering problem.</p>
-<p>All of the features appear to be generally Gaussian in distribution, but there are clearly some outliers that will need to be removed.</p>
+<p>All of the features appear to be positively skewed, so we will need to normalize them logarithmically. There are clearly some outliers that will need to be removed.</p>
 
 </div>
 </div>
@@ -18482,7 +18482,7 @@ EQAAMLT/B88BaJEBOiHSAAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>The first two principal components alone account for 70% of the total variance. The first seems to decrease along with milk, grocery, and detergents, which I noticed earlier seem to be correlated. The second principal component tracks the rest of the features: fresh and frozen foods, plus deli sales. These are the  "independant" variables. The third and fourth principal components, which account for another 22% of the variance, and are mostly concerned with whether fresh, frozen, or deli sales are dominant.</p>
+<p>The first two principal components alone account for 70% of the total variance. The first seems to decrease along with milk, grocery, and detergents, which I noticed earlier seem to be correlated. The second principal component tracks the rest of the features: fresh and frozen foods, plus deli sales. These are the  "independant" variables. The third and fourth principal components, which account for another 22% of the variance, and are mostly concerned with whether fresh, frozen, or deli sales are dominant. Dimension 3 increases with deli and frozen, but decreases with fresh food sales. Dimension 4 increases with frozen sales, but deceases with fresh and deli. By looking at these two dimensions in tandem, it should be possible to determine the relative importance of fresh/frozen/deli sales.</p>
 
 </div>
 </div>
