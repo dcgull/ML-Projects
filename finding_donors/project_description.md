@@ -1,4 +1,4 @@
-# Content: Supervised Learning
+# Content: Supervised Learning - Decision Tree vs Logistic Regression
 ## Project: Finding Donors for CharityML
 
 ## Project Overview
