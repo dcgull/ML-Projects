@@ -1,5 +1,5 @@
 # Machine Learning Engineer Nanodegree
-# Unsupervised Learning
+# Unsupervised Learning - PCA and Clustering
 ## Project: Creating Customer Segments
 
 ## Project Overview
