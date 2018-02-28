@@ -1,5 +1,5 @@
 # Machine Learning Engineer Nanodegree
-# Supervised Learning
+# Supervised Learning - Decision Tree vs Logistic Regression
 ## Project: Finding Donors for CharityML
 
 ### Install
