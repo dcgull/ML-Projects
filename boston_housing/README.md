@@ -1,5 +1,5 @@
 # Machine Learning Engineer Nanodegree
-# Model Evaluation and Validation
+# Model Evaluation and Validation - Decision Tree
 ## Project: Predicting Boston Housing Prices
 
 ### Install
