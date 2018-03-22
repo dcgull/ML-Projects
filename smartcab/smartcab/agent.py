@@ -68,8 +68,7 @@ class LearningAgent(Agent):
         
         # Set 'state' as a tuple of relevant data for the agent
 
-        state = (inputs['light'], inputs['oncoming'], waypoint)#,inputs['left'], inputs['right'],  deadline)
-
+        state = (inputs['light'], inputs['oncoming'], waypoint)
         return state
 
 
@@ -81,13 +80,8 @@ class LearningAgent(Agent):
         ## TO DO ##
         ###########
         # Calculate the maximum Q-value of all actions for a given state
-        options = []
-        m = max(self.Q[state].values())
-        for key, value in self.Q[state].iteritems():
-            if value == m:
-                options.append(key)
 
-        maxQ = random.choice(options)
+        maxQ = max(self.Q[state].values())
         return maxQ 
 
 
@@ -114,8 +108,6 @@ class LearningAgent(Agent):
         # Set the agent state and default action
         self.state = state
         self.next_waypoint = self.planner.next_waypoint()
-        action = random.choice(Environment.valid_actions)
-
 
         ########### 
         ## TO DO ##
@@ -132,8 +124,13 @@ class LearningAgent(Agent):
             if e < self.epsilon:
                 action = random.choice(Environment.valid_actions)
             else:
-                action = self.get_maxQ(state)
-                
+                options = []
+                maxQ = self.get_maxQ(state)
+                for key, value in self.Q[state].iteritems():
+                    if value == maxQ:
+                        options.append(key)
+                action = random.choice(options)
+    
         return action
 
 
@@ -147,7 +144,8 @@ class LearningAgent(Agent):
         ###########
         # When learning, implement the value iteration update rule
         #   Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
-        self.Q[state][action] += self.alpha*reward
+        if self.learning == True:
+            self.Q[state][action] += self.alpha*(reward - self.Q[state][action])
         return
 
 
